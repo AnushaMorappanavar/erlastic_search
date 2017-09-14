@@ -671,10 +671,11 @@ aliases(Params, Body) ->
 -type index() :: binary().
 -type type() :: binary().
 -type id() :: binary() | undefined.
+-type headers() :: [tuple()].
 -type metadata_tuple() :: {index(), type(), id()} |
                           {index(), type(), id(), headers()} |
-                          {index(), type(), id(), erlastic_json()} |
-                          {index(), type(), id(), erlastic_json(), headers()}.
+                          {index(), type(), id(), json()} |
+                          {index(), type(), id(), json(), headers()}.
 -type operation() :: {index | create | delete | update, metadata_tuple()}.
 
 -spec bulk_operation([operation()]) -> {ok, list()} | {error, any()}.
